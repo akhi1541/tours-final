@@ -1,0 +1,30 @@
+{
+  "name": "tours-proj",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "start:prod": "SET NODE_ENV=production & nodemon server.js",
+    "debug": "ndb server.js"
+  },
+  "author": "akhil",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-mongo-sanitize": "^2.1.0",
+    "express-rate-limit": "^5.2.6",
+    "fs": "0.0.1-security",
+    "helmet": "^4.6.0",
+    "hpp": "^0.2.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.11.15",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.6.0",
+    "pug": "^3.0.2",
+    "validator": "^13.6.0",
+    "xss-clean": "^0.1.1"
+  }
+}

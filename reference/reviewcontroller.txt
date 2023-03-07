@@ -1,0 +1,30 @@
+const catchAsync = require('../utils/catchAsync');
+const reviewsModel = require('../models/reviewsModel');
+exports.getAllReviews = catchAsync(async (req, res, next) => {
+  let filter = {};
+  if (req.params.tourId) {
+    filter = { tour: req.params.tourId }; //*if id is present then find tour with only that id
+  }
+  const reviews = await reviewsModel.find(filter);
+  res.status(200).json({
+    status: 'sucess',
+    results: reviews.length,
+    data: {
+      reviews,
+    },
+  });
+});
+
+exports.createReview = catchAsync(async (req, res, next) => {
+  if (!req.body.tour) req.body.tour = req.params.tourId;
+  if (!req.body.user) req.body.user = req.user._id;
+  console.log(req.body.tour, req.body.user);
+  const newReview = await reviewsModel.create(req.body);
+  res.status(200).json({
+    status: 'sucess',
+    message: 'review created sucessfully',
+    data: {
+      newReview,
+    },
+  });
+});
